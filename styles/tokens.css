@@ -1,0 +1,276 @@
+:root {
+  color-scheme: dark;
+
+  /* -------------------------------------------------------------------------
+   * Palette primitives — do not use directly in components.
+   * ------------------------------------------------------------------------- */
+  --palette-black: #050505;
+  --palette-near-black: #080808;
+  --palette-graphite: #0a0a0a;
+  --palette-elevated: #111111;
+  --palette-soft-white: #f5f5f7;
+  --palette-white: #ffffff;
+  --palette-marine: #6f8fa3;
+  --palette-marine-hover: #7e9cb0;
+  --palette-marine-active: #5e7d91;
+  --palette-success: #7d9a7c;
+  --palette-error: #c46b6b;
+  --palette-warning: #c4a56a;
+
+  /* -------------------------------------------------------------------------
+   * Semantic color
+   * ------------------------------------------------------------------------- */
+  --background-primary: var(--palette-black);
+  --background-secondary: var(--palette-near-black);
+  --surface-primary: var(--palette-graphite);
+  --surface-elevated: var(--palette-elevated);
+
+  --text-primary: var(--palette-soft-white);
+  --text-secondary: rgb(245 245 247 / 0.68);
+  --text-tertiary: rgb(245 245 247 / 0.45);
+  --text-muted: rgb(245 245 247 / 0.28);
+  --text-inverse: var(--palette-black);
+
+  --border-subtle: rgb(255 255 255 / 0.08);
+  --border-default: rgb(255 255 255 / 0.12);
+  --border-strong: rgb(255 255 255 / 0.18);
+
+  --brand-primary: var(--palette-marine);
+  --brand-hover: var(--palette-marine-hover);
+  --brand-active: var(--palette-marine-active);
+
+  --interactive-default: var(--palette-soft-white);
+  --interactive-hover: var(--palette-white);
+  --interactive-active: var(--palette-marine);
+  --interactive-focus: var(--palette-marine);
+  --interactive-disabled: rgb(245 245 247 / 0.28);
+
+  --status-success: var(--palette-success);
+  --status-error: var(--palette-error);
+  --status-warning: var(--palette-warning);
+
+  --overlay-photo: rgb(5 5 5 / 0.58);
+  --overlay-photo-strong: rgb(5 5 5 / 0.74);
+  --overlay-scrim-bottom: linear-gradient(
+    180deg,
+    rgb(5 5 5 / 0) 0%,
+    rgb(5 5 5 / 0.42) 42%,
+    rgb(5 5 5 / 0.88) 100%
+  );
+
+  /* -------------------------------------------------------------------------
+   * Spacing — 4px base. No off-scale values in UI work.
+   * ------------------------------------------------------------------------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-160: 160px;
+
+  /* -------------------------------------------------------------------------
+   * Grid — mobile 4 / tablet 8 / desktop 12, max 1440px
+   * ------------------------------------------------------------------------- */
+  --grid-columns: 4;
+  --grid-max-width: 1440px;
+  --grid-content-width: var(--grid-max-width);
+  --page-margin: var(--space-24);
+  --column-gap: var(--space-16);
+  --section-spacing: var(--space-80);
+  --page-padding-mobile: var(--space-24);
+
+  /* -------------------------------------------------------------------------
+   * Typography — Geist. Sizes are fluid clamp between mobile and desktop.
+   * Tablet values are documented as interpolation checkpoints, not jumps.
+   * ------------------------------------------------------------------------- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --font-display-xl-size-mobile: 3rem;
+  --font-display-xl-size-tablet: 4.5rem;
+  --font-display-xl-size-desktop: 6.5rem;
+  --font-display-xl-size: clamp(
+    var(--font-display-xl-size-mobile),
+    2.4rem + 4.5vw,
+    var(--font-display-xl-size-desktop)
+  );
+  --font-display-xl-line: 0.96;
+  --font-display-xl-tracking: -0.04em;
+  --font-display-xl-weight: var(--font-weight-regular);
+
+  --font-display-large-size-mobile: 2.5rem;
+  --font-display-large-size-tablet: 4rem;
+  --font-display-large-size-desktop: 5.5rem;
+  --font-display-large-size: clamp(
+    var(--font-display-large-size-mobile),
+    1.95rem + 4vw,
+    var(--font-display-large-size-desktop)
+  );
+  --font-display-large-line: 1;
+  --font-display-large-tracking: -0.036em;
+  --font-display-large-weight: var(--font-weight-regular);
+
+  --font-h1-size-mobile: 2.25rem;
+  --font-h1-size-tablet: 3.25rem;
+  --font-h1-size-desktop: 4.5rem;
+  --font-h1-size: clamp(
+    var(--font-h1-size-mobile),
+    1.7rem + 3.5vw,
+    var(--font-h1-size-desktop)
+  );
+  --font-h1-line: 1.04;
+  --font-h1-tracking: -0.032em;
+  --font-h1-weight: var(--font-weight-regular);
+
+  --font-h2-size-mobile: 2rem;
+  --font-h2-size-tablet: 2.75rem;
+  --font-h2-size-desktop: 3.75rem;
+  --font-h2-size: clamp(
+    var(--font-h2-size-mobile),
+    1.5rem + 3.1vw,
+    var(--font-h2-size-desktop)
+  );
+  --font-h2-line: 1.08;
+  --font-h2-tracking: -0.028em;
+  --font-h2-weight: var(--font-weight-regular);
+
+  --font-h3-size-mobile: 1.5rem;
+  --font-h3-size-tablet: 2rem;
+  --font-h3-size-desktop: 2.5rem;
+  --font-h3-size: clamp(
+    var(--font-h3-size-mobile),
+    1.2rem + 2.2vw,
+    var(--font-h3-size-desktop)
+  );
+  --font-h3-line: 1.14;
+  --font-h3-tracking: -0.022em;
+  --font-h3-weight: var(--font-weight-regular);
+
+  --font-h4-size-mobile: 1.25rem;
+  --font-h4-size-tablet: 1.375rem;
+  --font-h4-size-desktop: 1.5rem;
+  --font-h4-size: clamp(
+    var(--font-h4-size-mobile),
+    1.15rem + 0.7vw,
+    var(--font-h4-size-desktop)
+  );
+  --font-h4-line: 1.28;
+  --font-h4-tracking: -0.016em;
+  --font-h4-weight: var(--font-weight-medium);
+
+  --font-body-large-size-mobile: 1.0625rem;
+  --font-body-large-size-tablet: 1.125rem;
+  --font-body-large-size-desktop: 1.125rem;
+  --font-body-large-size: clamp(
+    var(--font-body-large-size-mobile),
+    1.02rem + 0.2vw,
+    var(--font-body-large-size-desktop)
+  );
+  --font-body-large-line: 1.62;
+  --font-body-large-tracking: -0.011em;
+  --font-body-large-weight: var(--font-weight-regular);
+
+  --font-body-size-mobile: 1rem;
+  --font-body-size-tablet: 1rem;
+  --font-body-size-desktop: 1rem;
+  --font-body-size: var(--font-body-size-desktop);
+  --font-body-line: 1.65;
+  --font-body-tracking: -0.008em;
+  --font-body-weight: var(--font-weight-regular);
+
+  --font-body-small-size-mobile: 0.8125rem;
+  --font-body-small-size-tablet: 0.875rem;
+  --font-body-small-size-desktop: 0.875rem;
+  --font-body-small-size: clamp(
+    var(--font-body-small-size-mobile),
+    0.8rem + 0.15vw,
+    var(--font-body-small-size-desktop)
+  );
+  --font-body-small-line: 1.55;
+  --font-body-small-tracking: 0;
+  --font-body-small-weight: var(--font-weight-regular);
+
+  --font-caption-size-mobile: 0.75rem;
+  --font-caption-size-tablet: 0.75rem;
+  --font-caption-size-desktop: 0.75rem;
+  --font-caption-size: var(--font-caption-size-desktop);
+  --font-caption-line: 1.45;
+  --font-caption-tracking: 0.02em;
+  --font-caption-weight: var(--font-weight-regular);
+
+  --font-eyebrow-size-mobile: 0.6875rem;
+  --font-eyebrow-size-tablet: 0.6875rem;
+  --font-eyebrow-size-desktop: 0.6875rem;
+  --font-eyebrow-size: var(--font-eyebrow-size-desktop);
+  --font-eyebrow-line: 1.3;
+  --font-eyebrow-tracking: 0.14em;
+  --font-eyebrow-weight: var(--font-weight-medium);
+
+  --font-navigation-size-mobile: 0.75rem;
+  --font-navigation-size-tablet: 0.8125rem;
+  --font-navigation-size-desktop: 0.8125rem;
+  --font-navigation-size: clamp(
+    var(--font-navigation-size-mobile),
+    0.72rem + 0.12vw,
+    var(--font-navigation-size-desktop)
+  );
+  --font-navigation-line: 1.25;
+  --font-navigation-tracking: 0.06em;
+  --font-navigation-weight: var(--font-weight-medium);
+
+  --font-cta-size-mobile: 0.75rem;
+  --font-cta-size-tablet: 0.8125rem;
+  --font-cta-size-desktop: 0.8125rem;
+  --font-cta-size: clamp(
+    var(--font-cta-size-mobile),
+    0.72rem + 0.12vw,
+    var(--font-cta-size-desktop)
+  );
+  --font-cta-line: 1.2;
+  --font-cta-tracking: 0.08em;
+  --font-cta-weight: var(--font-weight-medium);
+
+  --font-product-meta-size-mobile: 0.75rem;
+  --font-product-meta-size-tablet: 0.75rem;
+  --font-product-meta-size-desktop: 0.75rem;
+  --font-product-meta-size: var(--font-product-meta-size-desktop);
+  --font-product-meta-line: 1.4;
+  --font-product-meta-tracking: 0.08em;
+  --font-product-meta-weight: var(--font-weight-medium);
+
+  --font-spec-number-size-mobile: 2rem;
+  --font-spec-number-size-tablet: 2.75rem;
+  --font-spec-number-size-desktop: 3.5rem;
+  --font-spec-number-size: clamp(
+    var(--font-spec-number-size-mobile),
+    1.5rem + 2.8vw,
+    var(--font-spec-number-size-desktop)
+  );
+  --font-spec-number-line: 0.95;
+  --font-spec-number-tracking: -0.03em;
+  --font-spec-number-weight: var(--font-weight-regular);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --grid-columns: 8;
+    --page-margin: var(--space-48);
+    --column-gap: var(--space-16);
+    --section-spacing: var(--space-96);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-columns: 12;
+    --page-margin: var(--space-80);
+    --column-gap: var(--space-24);
+    --section-spacing: var(--space-128);
+  }
+}

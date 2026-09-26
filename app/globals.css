@@ -1,26 +1,258 @@
+@import "lenis/dist/lenis.css";
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "../styles/tokens.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-content: 90rem;
+
+  --color-background: var(--background-primary);
+  --color-foreground: var(--text-primary);
+
+  --color-background-primary: var(--background-primary);
+  --color-background-secondary: var(--background-secondary);
+  --color-surface-primary: var(--surface-primary);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-active: var(--brand-active);
+
+  --color-interactive-default: var(--interactive-default);
+  --color-interactive-hover: var(--interactive-hover);
+  --color-interactive-active: var(--interactive-active);
+  --color-interactive-focus: var(--interactive-focus);
+  --color-interactive-disabled: var(--interactive-disabled);
+
+  --color-status-success: var(--status-success);
+  --color-status-error: var(--status-error);
+  --color-status-warning: var(--status-warning);
+
+  --color-overlay-photo: var(--overlay-photo);
+  --color-overlay-photo-strong: var(--overlay-photo-strong);
+
+  --container-content: var(--grid-max-width);
+
+  --spacing-space-4: var(--space-4);
+  --spacing-space-8: var(--space-8);
+  --spacing-space-12: var(--space-12);
+  --spacing-space-16: var(--space-16);
+  --spacing-space-24: var(--space-24);
+  --spacing-space-32: var(--space-32);
+  --spacing-space-48: var(--space-48);
+  --spacing-space-64: var(--space-64);
+  --spacing-space-80: var(--space-80);
+  --spacing-space-96: var(--space-96);
+  --spacing-space-128: var(--space-128);
+  --spacing-space-160: var(--space-160);
+  --spacing-page: var(--page-margin);
+  --spacing-gutter: var(--column-gap);
+  --spacing-section: var(--section-spacing);
+
+  --text-display-xl: var(--font-display-xl-size);
+  --text-display-xl--line-height: var(--font-display-xl-line);
+  --text-display-xl--letter-spacing: var(--font-display-xl-tracking);
+  --text-display-xl--font-weight: var(--font-display-xl-weight);
+
+  --text-display-large: var(--font-display-large-size);
+  --text-display-large--line-height: var(--font-display-large-line);
+  --text-display-large--letter-spacing: var(--font-display-large-tracking);
+  --text-display-large--font-weight: var(--font-display-large-weight);
+
+  --text-h1: var(--font-h1-size);
+  --text-h1--line-height: var(--font-h1-line);
+  --text-h1--letter-spacing: var(--font-h1-tracking);
+  --text-h1--font-weight: var(--font-h1-weight);
+
+  --text-h2: var(--font-h2-size);
+  --text-h2--line-height: var(--font-h2-line);
+  --text-h2--letter-spacing: var(--font-h2-tracking);
+  --text-h2--font-weight: var(--font-h2-weight);
+
+  --text-h3: var(--font-h3-size);
+  --text-h3--line-height: var(--font-h3-line);
+  --text-h3--letter-spacing: var(--font-h3-tracking);
+  --text-h3--font-weight: var(--font-h3-weight);
+
+  --text-h4: var(--font-h4-size);
+  --text-h4--line-height: var(--font-h4-line);
+  --text-h4--letter-spacing: var(--font-h4-tracking);
+  --text-h4--font-weight: var(--font-h4-weight);
+
+  --text-body-large: var(--font-body-large-size);
+  --text-body-large--line-height: var(--font-body-large-line);
+  --text-body-large--letter-spacing: var(--font-body-large-tracking);
+  --text-body-large--font-weight: var(--font-body-large-weight);
+
+  --text-body: var(--font-body-size);
+  --text-body--line-height: var(--font-body-line);
+  --text-body--letter-spacing: var(--font-body-tracking);
+  --text-body--font-weight: var(--font-body-weight);
+
+  --text-body-small: var(--font-body-small-size);
+  --text-body-small--line-height: var(--font-body-small-line);
+  --text-body-small--letter-spacing: var(--font-body-small-tracking);
+  --text-body-small--font-weight: var(--font-body-small-weight);
+
+  --text-caption: var(--font-caption-size);
+  --text-caption--line-height: var(--font-caption-line);
+  --text-caption--letter-spacing: var(--font-caption-tracking);
+  --text-caption--font-weight: var(--font-caption-weight);
+
+  --text-eyebrow: var(--font-eyebrow-size);
+  --text-eyebrow--line-height: var(--font-eyebrow-line);
+  --text-eyebrow--letter-spacing: var(--font-eyebrow-tracking);
+  --text-eyebrow--font-weight: var(--font-eyebrow-weight);
+
+  --text-navigation: var(--font-navigation-size);
+  --text-navigation--line-height: var(--font-navigation-line);
+  --text-navigation--letter-spacing: var(--font-navigation-tracking);
+  --text-navigation--font-weight: var(--font-navigation-weight);
+
+  --text-cta: var(--font-cta-size);
+  --text-cta--line-height: var(--font-cta-line);
+  --text-cta--letter-spacing: var(--font-cta-tracking);
+  --text-cta--font-weight: var(--font-cta-weight);
+
+  --text-product-meta: var(--font-product-meta-size);
+  --text-product-meta--line-height: var(--font-product-meta-line);
+  --text-product-meta--letter-spacing: var(--font-product-meta-tracking);
+  --text-product-meta--font-weight: var(--font-product-meta-weight);
+
+  --text-spec-number: var(--font-spec-number-size);
+  --text-spec-number--line-height: var(--font-spec-number-line);
+  --text-spec-number--letter-spacing: var(--font-spec-number-tracking);
+  --text-spec-number--font-weight: var(--font-spec-number-weight);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line);
+    letter-spacing: var(--font-body-tracking);
+    font-weight: var(--font-body-weight);
+    font-feature-settings: "ss01" on, "cv11" on;
+  }
+
+  ::selection {
+    background-color: rgb(111 143 163 / 0.28);
+    color: var(--text-primary);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--interactive-focus);
+    outline-offset: 3px;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility page-shell {
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+@utility page-grid {
+  display: grid;
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+  column-gap: var(--column-gap);
+  row-gap: var(--column-gap);
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+}
+
+@utility section-space {
+  padding-block: var(--section-spacing);
+}
+
+@utility media-scrim {
+  background-color: var(--overlay-photo);
+}
+
+@utility media-scrim-strong {
+  background-color: var(--overlay-photo-strong);
+}
+
+@utility media-scrim-bottom {
+  background-image: var(--overlay-scrim-bottom);
+}
+
+@utility type-eyebrow {
+  text-transform: uppercase;
+}
+
+@utility type-spec-number {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility type-product-meta {
+  color: var(--brand-primary);
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(.page-exit) {
+  animation: 140ms ease-out both page-fade-out;
+}
+
+::view-transition-new(.page-enter) {
+  animation: 240ms cubic-bezier(0.22, 1, 0.36, 1) 60ms both page-fade-in;
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(.page-exit),
+  ::view-transition-new(.page-enter) {
+    animation-duration: 0s;
+    animation-delay: 0s;
+  }
 }

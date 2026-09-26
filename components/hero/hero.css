@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background-color: var(--background-primary);
+}
+
+.hero-media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  display: block;
+  max-width: none;
+  max-height: none;
+  object-fit: fill;
+  pointer-events: none;
+  transform: translate(-50%, calc(-50% + var(--hero-parallax-offset, 0px)));
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-media.is-visible {
+  opacity: 1;
+}
+
+.hero-scroll {
+  position: absolute;
+  right: var(--space-32);
+  bottom: var(--space-32);
+  z-index: 20;
+  display: none;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition:
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.9s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.9s;
+}
+
+.hero-scroll.is-revealed {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.hero-scroll-icon {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-scroll:hover,
+.hero-scroll:focus-visible {
+  color: var(--text-primary);
+}
+
+.hero-scroll:hover .hero-scroll-icon,
+.hero-scroll:focus-visible .hero-scroll-icon {
+  transform: translateY(4px);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .hero-media {
+    --hero-parallax-offset: 0px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-scroll {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media,
+  .hero-scroll,
+  .hero-scroll-icon {
+    transition: none;
+    transform: none;
+  }
+
+  .hero-media {
+    --hero-parallax-offset: 0px;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-scroll.is-revealed {
+    transform: none;
+  }
+
+  .hero-scroll:hover .hero-scroll-icon,
+  .hero-scroll:focus-visible .hero-scroll-icon {
+    transform: none;
+  }
+}
