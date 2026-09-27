@@ -12,13 +12,14 @@
   inset: 0 0 auto;
   z-index: 0;
   height: calc(100% + var(--space-32));
-  opacity: 0.4;
+  opacity: 0.55;
   background: linear-gradient(
     180deg,
     var(--overlay-photo-strong) 0%,
     var(--overlay-photo) 52%,
     transparent 100%
   );
+  backdrop-filter: blur(8px);
   content: "";
   pointer-events: none;
 }
@@ -61,6 +62,54 @@
   color: var(--brand-primary);
 }
 
+.nav-products-item {
+  position: relative;
+}
+
+.nav-products-dropdown {
+  position: absolute;
+  top: 100%;
+  left: calc(var(--space-16) * -1);
+  z-index: 1;
+  display: grid;
+  min-width: 16rem;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--background-primary) 82%, transparent);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-products-item:hover .nav-products-dropdown,
+.nav-products-item:focus-within .nav-products-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+
+.nav-products-link {
+  display: block;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-products-link:hover,
+.nav-products-link:focus-visible,
+.nav-products-link.is-active {
+  color: var(--interactive-hover);
+}
+
 .nav-menu-panel {
   opacity: 0;
   visibility: hidden;
@@ -79,7 +128,9 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header,
   .nav-link,
-  .nav-menu-panel {
+  .nav-menu-panel,
+  .nav-products-dropdown,
+  .nav-products-link {
     transition: none;
     transform: none;
   }
@@ -87,5 +138,30 @@
   .site-header {
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-products-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+  }
+
+  .nav-products-dropdown {
+    position: static;
+    gap: var(--space-12);
+    padding: 0 0 0 var(--space-16);
+    border: 0;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav-products-link {
+    white-space: normal;
   }
 }
