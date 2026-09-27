@@ -191,6 +191,27 @@ export function ScrollMotion({ children }: ScrollMotionProps) {
               },
             );
 
+            gsap.utils.toArray<HTMLElement>("[data-statement-zoom]").forEach(
+              (element) => {
+                gsap.fromTo(
+                  element,
+                  { scale: 0.94 },
+                  {
+                    scale: 1,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    immediateRender: false,
+                    clearProps: "transform",
+                    scrollTrigger: {
+                      trigger: element,
+                      start: "top 88%",
+                      once: true,
+                    },
+                  },
+                );
+              },
+            );
+
             gsap.utils
               .toArray<HTMLElement>("[data-scroll-count]")
               .forEach((element) => {
