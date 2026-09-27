@@ -10,7 +10,6 @@ const HERO_SRC = "/videos/bnt-hero.mp4";
 
 export function Hero() {
   const [videoReady, setVideoReady] = useState(false);
-  const [chromeReady, setChromeReady] = useState(false);
 
   const onReady = useCallback(() => {
     setVideoReady(true);
@@ -33,31 +32,12 @@ export function Hero() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    if (media.matches) {
-      setChromeReady(true);
-      return;
-    }
-
-    if (!videoReady) {
-      return;
-    }
-
-    const frame = window.requestAnimationFrame(() => {
-      setChromeReady(true);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [videoReady]);
-
   return (
     <>
-      <SiteHeader revealed={chromeReady} />
+      <SiteHeader revealed />
       <section id="hero" className="hero" aria-label="BNT Marine">
         <HeroVideo src={HERO_SRC} onReady={onReady} visible={videoReady} />
-        <ScrollIndicator revealed={chromeReady} />
+        <ScrollIndicator revealed />
       </section>
     </>
   );

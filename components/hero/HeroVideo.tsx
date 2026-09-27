@@ -102,6 +102,8 @@ export function HeroVideo({ src, onReady, visible }: HeroVideoProps) {
 
     if (video.readyState >= 3) {
       markReady();
+    } else {
+      startPlayback();
     }
 
     const fallback = window.setTimeout(markReady, 4000);
@@ -125,7 +127,7 @@ export function HeroVideo({ src, onReady, visible }: HeroVideoProps) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         controls={false}
         disablePictureInPicture
         disableRemotePlayback
