@@ -17,6 +17,23 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
+    const navigation = performance.getEntriesByType(
+      "navigation",
+    )[0] as PerformanceNavigationTiming | undefined;
+
+    if (navigation?.type !== "reload") {
+      return;
+    }
+
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${window.location.search}`,
+    );
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (media.matches) {
