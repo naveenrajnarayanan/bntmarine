@@ -1,0 +1,14 @@
+.home-gallery-track {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.home-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-gallery-track {
+    scroll-behavior: auto;
+  }
+}

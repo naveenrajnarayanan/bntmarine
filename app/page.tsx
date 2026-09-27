@@ -1,6 +1,8 @@
 import { Hero } from "@/components/hero/Hero";
 import { About } from "@/components/sections/About";
 import { ContactSection } from "@/components/sections/Contact";
+import { HomeGallery } from "@/components/sections/HomeGallery";
+import { Numbers } from "@/components/sections/Numbers";
 import { Statement } from "@/components/sections/Statement";
 import { PageTransition } from "@/components/system/PageTransition";
 
@@ -16,7 +18,9 @@ export default function Home() {
         </a>
         <Hero />
         <Statement />
+        <HomeGallery />
         <About />
+        <Numbers />
         <ContactSection />
       </>
     </PageTransition>

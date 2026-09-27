@@ -191,6 +191,28 @@ export function ScrollMotion({ children }: ScrollMotionProps) {
               },
             );
 
+            gsap.utils
+              .toArray<HTMLElement>("[data-scroll-count]")
+              .forEach((element) => {
+                const target = Number(element.dataset.scrollCount);
+                if (!Number.isFinite(target)) {
+                  return;
+                }
+
+                gsap.set(element, { textContent: 0 });
+                gsap.to(element, {
+                  textContent: target,
+                  snap: { textContent: 1 },
+                  duration: 1.4,
+                  ease: "power2.out",
+                  scrollTrigger: {
+                    trigger: element,
+                    start: "top 88%",
+                    once: true,
+                  },
+                });
+              });
+
             const hero = document.querySelector<HTMLElement>(".hero");
             const heroMedia = document.querySelector<HTMLElement>(".hero-media");
 

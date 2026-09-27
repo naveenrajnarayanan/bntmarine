@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -51,12 +52,21 @@ export function SiteHeader({ revealed = false }: SiteHeaderProps) {
         isHome ? (revealed ? "is-revealed" : null) : "is-static",
       )}
     >
-      <PageShell className="relative z-50 flex items-center justify-between py-space-24 lg:py-space-32">
+      <PageShell className="relative z-50 flex items-center justify-between py-space-8 md:py-space-12">
         <Link
           href="/#hero"
-          className={cn(typeClass.navigation, "site-wordmark type-eyebrow")}
+          className="site-wordmark shrink-0 gap-space-12"
         >
-          BNT Marine
+          <Image
+            src="/Img/bnt_logo.png"
+            alt=""
+            width={52}
+            height={44}
+            className="h-10 w-auto md:h-11"
+          />
+          <span className={cn(typeClass.navigation, "type-eyebrow text-text-primary")}>
+            BNT Marine
+          </span>
         </Link>
 
         <nav

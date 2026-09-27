@@ -11,12 +11,12 @@
   position: absolute;
   inset: 0 0 auto;
   z-index: 0;
-  height: calc(100% + var(--space-16));
-  opacity: 0.32;
+  height: calc(100% + var(--space-32));
+  opacity: 0.4;
   background: linear-gradient(
     180deg,
     var(--overlay-photo-strong) 0%,
-    var(--overlay-photo) 58%,
+    var(--overlay-photo) 52%,
     transparent 100%
   );
   content: "";
@@ -36,13 +36,14 @@
 }
 
 .site-wordmark {
-  color: var(--text-primary);
-  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-wordmark:hover,
 .site-wordmark:focus-visible {
-  color: var(--interactive-hover);
+  opacity: 0.8;
 }
 
 .nav-link {

@@ -7,7 +7,7 @@ export function Statement() {
       as="section"
       id="statement"
       data-scroll-reveal
-      className="section-space scroll-mt-space-96 bg-background-primary"
+      className="section-space scroll-mt-[56px] md:scroll-mt-[68px] bg-background-primary"
     >
       <div className="col-span-4 md:col-span-6 lg:col-span-7 lg:col-start-2">
         <Text variant="eyebrow">BNT Marine</Text>

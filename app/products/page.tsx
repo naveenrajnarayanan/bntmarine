@@ -20,7 +20,7 @@ export default function ProductsPage() {
         <PageShell
           as="section"
           aria-labelledby="products-intro-title"
-          className="pt-space-128"
+          className=""
         >
           <Text variant="eyebrow">BNT Marine</Text>
           <Text

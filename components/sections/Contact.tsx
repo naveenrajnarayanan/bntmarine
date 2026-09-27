@@ -10,7 +10,7 @@ export function ContactSection() {
       id="contact"
       data-scroll-reveal
       aria-labelledby="contact-title"
-      className="section-space scroll-mt-space-96 items-start border-t border-border-subtle"
+      className="section-space scroll-mt-[56px] md:scroll-mt-[68px] items-start border-t border-border-subtle"
     >
       <div className="col-span-4 md:col-span-3 lg:col-span-4">
         <Text variant="eyebrow">Contact BNT Marine</Text>

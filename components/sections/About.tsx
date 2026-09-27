@@ -8,7 +8,7 @@ export function About() {
       id="about"
       data-scroll-reveal
       aria-labelledby="about-title"
-      className="section-space scroll-mt-space-96 items-center border-t border-border-subtle"
+      className="section-space scroll-mt-[56px] md:scroll-mt-[68px] items-center border-t border-border-subtle"
     >
       <div className="col-span-4 md:col-span-3 lg:col-span-4">
         <Text variant="eyebrow">About BNT Marine</Text>

@@ -80,7 +80,7 @@ export default function GalleryPage() {
       <>
         <SiteHeader />
         <main className="section-space">
-        <PageGrid as="section" className="items-end pt-space-128">
+        <PageGrid as="section" className="items-end">
           <div className="col-span-4 md:col-span-5 lg:col-span-7">
             <Text variant="eyebrow">BNT Marine</Text>
             <Text
@@ -125,7 +125,7 @@ export default function GalleryPage() {
             id={collection.id}
             aria-labelledby={`${collection.id}-title`}
             data-scroll-reveal
-            className="mt-space-96 scroll-mt-space-96"
+            className="mt-space-96 scroll-mt-[56px] md:scroll-mt-[68px]"
           >
             <div className="col-span-4 border-t border-border-subtle pt-space-24 md:col-span-8 lg:col-span-12">
               <Text as="h2" id={`${collection.id}-title`} variant="h3">
