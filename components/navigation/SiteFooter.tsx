@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PageGrid } from "@/components/system/Container";
 import { Text } from "@/components/system/Text";
@@ -8,27 +9,72 @@ const contactEmail = "sales@bntmarine.com";
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-border-subtle">
-      <PageGrid data-scroll-reveal className="gap-y-space-32 py-space-48">
-        <div className="col-span-4 md:col-span-4 lg:col-span-5">
-          <Link href="/#hero" className="type-eyebrow text-text-primary">
-            BNT Marine
+      <PageGrid
+        data-scroll-reveal
+        className="gap-y-space-48 py-space-64"
+      >
+        {/* BRAND / ADDRESS */}
+        <div className="col-span-4 md:col-span-6 lg:col-span-4">
+          <Link
+            href="/#hero"
+            className="inline-flex items-center"
+            aria-label="BNT home"
+          >
+            <Image
+              src="/Img/bnt_new_logo_vectorized.png"
+              alt="BNT Marine"
+              width={120}
+              height={72}
+              className="h-20 w-auto object-contain md:h-24"
+            />
           </Link>
-          <Text variant="body-small" tone="secondary" className="mt-space-16">
-            Marine craft, considered as complete systems.
-          </Text>
+
+          <div className="mt-space-24 space-y-space-16 text-body-small">
+            <p className="leading-[1.7] text-text-secondary">
+              <span className="font-medium text-text-primary">
+                Register Office:
+              </span>{" "}
+              74/5 Abishekapakkam Main Road,
+              <br />
+              Thavalakuppam, Puducherry 605007, India.
+            </p>
+
+            <p className="leading-[1.7] text-text-secondary">
+              <span className="font-medium text-text-primary">
+                Yard Site:
+              </span>{" "}
+              New Port area, Puducherry - 605001, India.
+            </p>
+
+            <p className="leading-[1.7] text-text-secondary">
+              <span className="font-medium text-text-primary">
+                Andaman Branch:
+              </span>{" "}
+              BNT Marine Crafts India PVT LTD, S Square Complex, Shadipur,
+              South Andaman, 744106, Andaman and Nicobar Islands.
+            </p>
+          </div>
         </div>
 
+        {/* EXPLORE */}
         <nav
           aria-label="Footer"
-          className="col-span-4 md:col-span-4 lg:col-span-4"
+          className="col-span-4 md:col-span-6 lg:col-span-4"
         >
           <Text variant="eyebrow">Explore</Text>
-          <ul className="mt-space-16 grid grid-cols-2 gap-x-space-24 gap-y-space-16">
+
+          <ul className="mt-space-24 grid grid-cols-2 gap-x-space-32 gap-y-space-16">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="type-eyebrow text-text-secondary hover:text-text-primary"
+                  className="
+                    type-eyebrow
+                    text-text-secondary
+                    transition-colors
+                    duration-300
+                    hover:text-text-primary
+                  "
                 >
                   {item.label}
                 </Link>
@@ -37,14 +83,52 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="col-span-4 md:col-span-8 lg:col-span-3">
+        {/* ENQUIRIES */}
+        <div className="col-span-4 md:col-span-12 lg:col-span-4">
           <Text variant="eyebrow">Enquiries</Text>
-          <a
-            href={`mailto:${contactEmail}`}
-            className="mt-space-16 inline-block text-body-small text-text-primary underline decoration-border-subtle underline-offset-4 hover:text-brand-primary"
-          >
-            {contactEmail}
-          </a>
+
+          <div className="mt-space-24 space-y-space-16 text-body-small">
+            <div className="space-y-space-10 text-text-secondary">
+              <a
+                href="tel:+916382946876"
+                className="
+                  block
+                  transition-colors
+                  duration-300
+                  hover:text-brand-primary
+                "
+              >
+                Mobile 1: +91 63829 46876
+              </a>
+
+              <a
+                href="tel:+919159714768"
+                className="
+                  block
+                  transition-colors
+                  duration-300
+                  hover:text-brand-primary
+                "
+              >
+                Mobile 2: +91 91597 14768
+              </a>
+            </div>
+
+            <a
+              href={`mailto:${contactEmail}`}
+              className="
+                inline-block
+                underline
+                decoration-border-subtle
+                underline-offset-4
+                transition-colors
+                duration-300
+                hover:text-brand-primary
+              "
+            >
+              {contactEmail}
+            </a>
+          </div>
         </div>
       </PageGrid>
     </footer>

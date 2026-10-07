@@ -56,94 +56,138 @@ export default async function ProductPage({
       <>
         <SiteHeader />
         <main className="section-space">
-        <PageShell className="pt-space-128">
-          <Link
-            href="/products"
-            className="type-eyebrow text-cta text-text-secondary"
-          >
-            Products
-          </Link>
-          <Text as="h1" variant="h1" className="mt-space-32">
-            {product.name}
-          </Text>
-        </PageShell>
-
-        <PageGrid
-          as="section"
-          aria-labelledby={`${product.slug}-profile-title`}
-          data-scroll-reveal
-          className="mt-space-64"
-        >
-          <div className="col-span-4 md:col-span-3 lg:col-span-4">
-            <Text variant="eyebrow">Vessel profile</Text>
-            <Text
-              id={`${product.slug}-profile-title`}
-              as="h2"
-              variant="h3"
-              className="mt-space-16"
+          <PageShell className="pt-space-28">
+            <Link
+              href="/products"
+              className="type-eyebrow text-cta text-text-secondary"
             >
-              At a glance
+              Products
+            </Link>
+            <Text as="h1" variant="h1" className="mt-space-32">
+              {product.name}
             </Text>
-          </div>
-          <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
-            <Text variant="product-meta">{product.category}</Text>
-            <Text
-              variant="body-large"
-              tone="secondary"
-              className="mt-space-16"
+          </PageShell>
+
+          {product.detailDescription && (
+            <PageShell className="mt-space-32">
+              <Text
+                variant="body-large"
+                tone="secondary"
+                className="indent-[2.5rem] leading-[1.75] tracking-[-0.01em]"
+              >
+                {product.detailDescription}
+              </Text>
+            </PageShell>
+          )}
+
+          <ProductGallery productName={product.name} images={gallery} />
+
+          {product.specifications.length > 0 && (
+            <PageGrid
+              as="section"
+              data-scroll-reveal
+              className="mt-space-96 pt-space-32"
             >
-              {product.description}
-            </Text>
-          </div>
-        </PageGrid>
-
-        <ProductGallery productName={product.name} images={gallery} />
-
-        {product.specifications.length > 0 && (
-          <PageGrid as="section" data-scroll-reveal className="mt-space-96">
-            <div className="col-span-4 lg:col-span-6">
-              <Text variant="eyebrow">Specifications</Text>
-              <dl className="mt-space-32">
-                {product.specifications.map((specification) => (
-                  <div
-                    key={specification.label}
-                    className="flex justify-between gap-space-24 border-t border-border-subtle py-space-16"
-                  >
-                    <dt className="text-body-small text-text-secondary">
-                      {specification.label}
-                    </dt>
-                    <dd className="text-body-small text-text-primary">
-                      {specification.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </PageGrid>
-        )}
-
-        {related.length > 0 && (
-          <PageGrid as="section" data-scroll-reveal className="mt-space-128">
-            <div className="col-span-4 lg:col-span-12">
-              <Text variant="eyebrow">Other products</Text>
-              <ul className="mt-space-32">
-                {related.map((item) => (
-                  <li
-                    key={item.slug}
-                    className="border-t border-border-subtle py-space-16"
-                  >
-                    <Link
-                      href={`/products/${item.slug}`}
-                      className="text-h4 text-text-primary"
+              <div className="col-span-4 lg:col-span-12">
+                <div
+                  className="
+          mx-auto
+          w-full
+          max-w-[1280px]
+          rounded-[28px]
+          border
+          border-border-subtle
+          bg-background-secondary/40
+          px-6
+          py-10
+          sm:px-8
+          md:px-12
+          md:py-12
+          lg:px-16
+          lg:py-14
+        "
+                >
+                  {/* HEADING */}
+                  <div className="mb-12">
+                    <span
+                      className="
+              text-sm
+              font-medium
+              uppercase
+              tracking-[0.18em]
+              text-text-secondary
+            "
                     >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </PageGrid>
-        )}
+                      Technical Specifications
+                    </span>
+                  </div>
+
+                  {/* SPECIFICATIONS — 3 COLUMNS */}
+                  <dl className="grid grid-cols-1 gap-x-16 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 lg:gap-y-12">
+                    {product.specifications.map((specification) => (
+                      <div
+                        key={specification.label}
+                        className="
+                flex
+                min-h-[76px]
+                flex-col
+                justify-start
+                text-left
+              "
+                      >
+                        <dt
+                          className="
+                  text-sm
+                  font-medium
+                  tracking-wide
+                  text-text-secondary
+                "
+                        >
+                          {specification.label}
+                        </dt>
+
+                        <dd
+                          className="
+                  mt-2
+                  text-[20px]
+                  font-normal
+                  leading-[1.4]
+                  tracking-[-0.015em]
+                  text-text-primary
+                  md:text-[21px]
+                "
+                        >
+                          {specification.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </PageGrid>
+          )}
+          {related.length > 0 && (
+            <PageGrid as="section" data-scroll-reveal className="mt-space-128">
+              <div className="col-span-4 lg:col-span-12">
+                <Text variant="eyebrow">Other products</Text>
+                <ul className="mt-space-32">
+                  {related.map((item) => (
+                    <li
+                      key={item.slug}
+                      className="border-t border-border-subtle py-space-16"
+                    >
+                      <Link
+                        href={`/products/${item.slug}`}
+                        className="text-h4 text-text-primary"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </PageGrid>
+          )}
         </main>
       </>
     </PageTransition>

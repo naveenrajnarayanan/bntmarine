@@ -66,7 +66,7 @@ export function HomeGallery() {
       className="overflow-hidden border-y border-border-subtle py-space-32 md:py-space-40 lg:py-space-48"
     >
       <PageShell>
-        <Text variant="eyebrow">BNT Marine</Text>
+        <Text variant="eyebrow">Our Products</Text>
         <Text
           id="home-gallery-title"
           as="h2"

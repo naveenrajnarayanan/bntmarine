@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/design-system/cn";
-import { typeClass } from "@/lib/design-system/classes";
 import { PageShell } from "@/components/system/Container";
 import { NavLinks } from "@/components/navigation/NavLinks";
 import "./header.css";
@@ -20,10 +19,6 @@ export function SiteHeader({ revealed = false }: SiteHeaderProps) {
   const menuId = useId();
   const isHome = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) {
@@ -55,18 +50,18 @@ export function SiteHeader({ revealed = false }: SiteHeaderProps) {
       <PageShell className="relative z-50 flex items-center justify-between py-space-8 md:py-space-12">
         <Link
           href="/#hero"
-          className="site-wordmark shrink-0 gap-space-12"
+          onClick={() => setMenuOpen(false)}
+          className="site-wordmark shrink-0"
+          aria-label="BNT Marine home"
         >
           <Image
-            src="/Img/bnt_logo.png"
+            src="/Img/bnt_new_logo_vectorized.png"
             alt=""
-            width={52}
-            height={44}
-            className="h-10 w-auto md:h-11"
+            width={170}
+            height={110}
+            className="h-12 w-auto object-contain md:h-16"
+            priority
           />
-          <span className={cn(typeClass.navigation, "type-eyebrow text-text-primary")}>
-            BNT Marine
-          </span>
         </Link>
 
         <nav

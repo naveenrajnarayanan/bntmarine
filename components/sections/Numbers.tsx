@@ -1,4 +1,3 @@
-import { Anchor } from "lucide-react";
 import { PageGrid } from "@/components/system/Container";
 import { Text } from "@/components/system/Text";
 
@@ -14,36 +13,66 @@ export function Numbers() {
       as="section"
       data-scroll-reveal
       aria-labelledby="numbers-title"
-      className="section-space border-y border-border-subtle lg:items-center"
+      className="border-y border-border-subtle py-space-96"
     >
-      <div className="col-span-4 flex items-start gap-space-16 md:col-span-8 md:items-center lg:col-span-4 lg:flex-col lg:items-start lg:gap-space-24">
-        <Anchor
-          aria-hidden="true"
-          className="mt-space-4 size-6 shrink-0 text-brand-primary md:size-8"
-          strokeWidth={1.5}
-        />
+      {/* Section heading */}
+      <div className="col-span-full flex items-end justify-between border-b border-border-subtle pb-space-32 lg:col-span-12">
         <div>
-          <Text id="numbers-title" as="h2" variant="h2">
+          <Text
+            id="numbers-title"
+            as="h2"
+            variant="h2"
+            className="tracking-tight"
+          >
             Numbers
           </Text>
-          <Text variant="eyebrow" className="mt-space-12">
-            By the numbers
+
+          <Text
+            variant="eyebrow"
+            tone="secondary"
+            className="mt-space-8"
+          >
+            
           </Text>
         </div>
+
+        <Text
+          variant="eyebrow"
+          tone="secondary"
+          className="hidden lg:block"
+        >
+          By the numbers.
+        </Text>
       </div>
 
-      <ul className="col-span-4 grid grid-cols-1 gap-x-space-24 gap-y-space-32 md:col-span-8 md:grid-cols-3 lg:col-span-8">
-        {statistics.map(({ value, label }) => (
-          <li key={label} className="border-t border-border-subtle pt-space-24">
+      {/* Statistics */}
+      <ul className="col-span-full grid grid-cols-1 md:grid-cols-3">
+        {statistics.map(({ value, label }, index) => (
+          <li
+            key={label}
+            className={[
+              "relative pt-space-32 pb-space-16",
+              index !== 0
+                ? "md:border-l md:border-border-subtle md:pl-space-32"
+                : "",
+            ].join(" ")}
+          >
             <Text
               as="span"
               variant="display-large"
               aria-label={String(value)}
               data-scroll-count={value}
+              className="block leading-none tracking-[-0.04em]"
             >
               {value}
             </Text>
-            <Text variant="body" tone="secondary" className="mt-space-12">
+
+            <Text
+              as="span"
+              variant="body"
+              tone="secondary"
+              className="mt-space-16 block whitespace-nowrap"
+            >
               {label}
             </Text>
           </li>

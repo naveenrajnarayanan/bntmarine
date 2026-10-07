@@ -21,7 +21,7 @@ export function ProductGallery({ productName, images }: ProductGalleryProps) {
       className="mt-space-64"
     >
       <div
-        className="relative col-span-4 aspect-video overflow-hidden bg-background-secondary md:col-span-8 lg:col-span-12"
+        className="relative col-span-4 aspect-[21/9] overflow-hidden bg-background-secondary md:col-span-8 lg:col-span-12"
         aria-hidden={activeImage ? undefined : true}
       >
         {activeImage && (
