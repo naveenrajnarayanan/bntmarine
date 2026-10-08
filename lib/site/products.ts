@@ -58,14 +58,13 @@ export const products: Product[] = [
     description: "15.90 m · 70 passengers",
     detailDescription:
       "The 16-meter Catamaran FRP (Fiberglass Reinforced Plastic) is a high-performance, spacious passenger vessel designed to provide comfort and stability for up to 70 passengers. Crafted with durable and lightweight FRP material, this catamaran ensures superior fuel efficiency and minimal maintenance. Its twin-hull design enhances stability, making it ideal for both calm and rough waters. Perfect for ferry services, tourist excursions, or leisure cruises, the vessel offers ample deck space, comfortable seating, and advanced safety features. Built for durability and long-lasting performance, this catamaran is the ideal choice for efficient and reliable passenger transport.",
-    heroImage: "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/14.jpg",
+    heroImage: "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/DJI_0354 - Copy.jpg",
     gallery: [
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/1 (1).jpg",
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/2 (1).jpg",
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/3.jpg",
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/DJI_0468.jpg",
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/DJI_0351 - Copy.jpg",
-      "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/DJI_0354 - Copy.jpg",
       "/Img/FRP_70-PASSSENGER_CATAMARAN_FERRY/DJI_0468 - Copy.jpg",
     ],
     specifications: [

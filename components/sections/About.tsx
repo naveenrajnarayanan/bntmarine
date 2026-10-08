@@ -58,82 +58,95 @@ export function About() {
         </Text>
 
       <ul className="mt-space-48">
-  <li className="grid grid-cols-4 gap-x-space-16 border-t border-border-subtle py-space-24">
-    <Text variant="eyebrow" tone="primary" className="col-span-4 md:col-span-1">
-      The range
-    </Text>
+        <li className="grid grid-cols-4 items-center gap-x-space-16 border-t border-border-subtle py-space-24">
+          <Text
+            as="span"
+            variant="h4"
+            className="col-span-4 text-left text-[1.5rem] font-medium leading-[1.2] tracking-[-0.03em] text-text-primary md:col-span-1 md:text-left md:text-[1.65rem] lg:text-[2rem]"
+          >
+            The range
+          </Text>
 
-    <Text
-      variant="body"
-      tone="secondary"
-      className="
-        col-span-4
-        mt-space-12
-        text-[1.25rem]
-        leading-[1.7]
-        tracking-[-0.01em]
-        md:col-span-3
-        md:mt-0
-        md:text-[1.35rem]
-        lg:text-[1.4rem]
-      "
-    >
-      Game Fishing, Semi Submarine, Catamaran 70 Passenger Ferry and
-      Trimaran.
-    </Text>
-  </li>
+          <Text
+            variant="body"
+            tone="secondary"
+            className="
+              col-span-4
+              mt-space-12
+              text-[1.25rem]
+              leading-[1.7]
+              tracking-[-0.01em]
+              md:col-span-3
+              md:mt-0
+              md:text-[1.35rem]
+              lg:text-[1.4rem]
+            "
+          >
+            Aluminium passenger ferry, High speed crew boat, rescue boat,
+            ambulance boat, semi-submarine, game fishing vessel, catamaran and
+            trimaran.
+          </Text>
+        </li>
 
-  <li className="grid grid-cols-4 gap-x-space-16 border-t border-border-subtle py-space-24">
-    <Text variant="eyebrow" tone="primary" className="col-span-4 md:col-span-1">
-      Our philosophy
-    </Text>
+        <li className="grid grid-cols-4 items-center gap-x-space-16 border-t border-border-subtle py-space-24">
+          <Text
+            as="span"
+            variant="h4"
+            className="col-span-4 text-left text-[1.5rem] font-medium leading-[1.2] tracking-[-0.03em] text-text-primary md:col-span-1 md:text-left md:text-[1.65rem] lg:text-[2rem]"
+          >
+            Our philosophy
+          </Text>
 
-    <Text
-      variant="body"
-      tone="secondary"
-      className="
-        col-span-4
-        mt-space-12
-        text-[1.25rem]
-        leading-[1.7]
-        tracking-[-0.01em]
-        md:col-span-3
-        md:mt-0
-        md:text-[1.35rem]
-        lg:text-[1.4rem]
-      "
-    >
-      Structure, performance and finish are treated as one discipline,
-      considered in relation to the complete craft.
-    </Text>
-  </li>
+          <Text
+            variant="body"
+            tone="secondary"
+            className="
+              col-span-4
+              mt-space-12
+              text-[1.25rem]
+              leading-[1.7]
+              tracking-[-0.01em]
+              md:col-span-3
+              md:mt-0
+              md:text-[1.35rem]
+              lg:text-[1.4rem]
+            "
+          >
+            Structure, performance and finish are treated as one discipline,
+            considered in relation to the complete craft.
+          </Text>
+        </li>
 
-  <li className="grid grid-cols-4 gap-x-space-16 border-t border-border-subtle py-space-24">
-    <Text variant="eyebrow" tone="primary"className="col-span-4 md:col-span-1">
-      Engineering &amp; manufacturing
-    </Text>
+        <li className="grid grid-cols-4 items-center gap-x-space-16 border-t border-border-subtle py-space-24">
+          <Text
+            as="span"
+            variant="h4"
+            className="col-span-4 text-left text-[1.5rem] font-medium leading-[1.2] tracking-[-0.03em] text-text-primary md:col-span-1 md:text-left md:text-[1.65rem] lg:text-[2rem]"
+          >
+            Engineering &amp; manufacturing
+          </Text>
 
-    <Text
-      variant="body"
-      tone="secondary"
-      className="
-        col-span-4
-        mt-space-12
-        text-[1.25rem]
-        leading-[1.7]
-        tracking-[-0.01em]
-        md:col-span-3
-        md:mt-0
-        md:text-[1.35rem]
-        lg:text-[1.4rem]
-      "
-    >
-      Engineering and manufacturing belong in the same conversation.
-      Construction, function and finish are considered together, rather
-      than as separate stages.
-    </Text>
-  </li>
-</ul>
+          <Text
+            variant="body"
+            tone="secondary"
+            className="
+              col-span-4
+              mt-space-12
+              text-[1.25rem]
+              leading-[1.7]
+              tracking-[-0.01em]
+              md:col-span-3
+              md:mt-0
+              md:text-[1.35rem]
+              lg:text-[1.4rem]
+            "
+          >
+            Engineering and manufacturing belong in the same conversation.
+            Construction, function and finish are considered together, rather than
+            as separate stages.
+          </Text>
+        </li>
+      </ul>
       </div>
     </PageGrid>
   );

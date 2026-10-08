@@ -37,7 +37,6 @@ const productGalleryCollections = [
     title: "Semi Submarine",
     productSlug: "semi-submarine",
     additionalImages: [
-      "/images/sub/1.jpg",
       "/images/sub/2.jpg",
       "/images/sub/3.jpg",
     ],
@@ -82,16 +81,7 @@ const galleryCollections = [
       "/images/alumin/Aluminium_boat_in_sea.jpg",
     ],
   },
-  {
-    id: "river-boats",
-    title: "River Boats",
-    images: [
-      "/images/river/1.jpg",
-      "/images/river/2.jpg",
-      "/images/river/3.jpg",
-      "/images/river/4.jpg",
-    ],
-  },
+
   {
     id: "interiors",
     title: "Boat Interiors",
@@ -100,24 +90,7 @@ const galleryCollections = [
       "/images/inner/chief3.jpeg",
       "/images/inner/chief4.jpg",
     ],
-  },
-  {
-    id: "bambo",
-    title: "Bambo",
-    images: [
-      "/images/bambo/2.jpg",
-      "/images/bambo/3.jpg",
-      "/images/bambo/4.jpg",
-    ],
-  },
-  {
-    id: "cornigiotto",
-    title: "Cornigiotto",
-    images: [
-      "/images/cornigiotto/1.jpg",
-      "/images/cornigiotto/3.jpg",
-    ],
-  },
+  }
 ];
 
 export const metadata: Metadata = {
@@ -271,7 +244,7 @@ export default function GalleryPage() {
                           ? "eager"
                           : "lazy"
                       }
-                      className="object-contain"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                 ))}

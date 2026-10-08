@@ -114,20 +114,24 @@ export function SiteFooter() {
               </a>
             </div>
 
-            <a
-              href={`mailto:${contactEmail}`}
-              className="
-                inline-block
-                underline
-                decoration-border-subtle
-                underline-offset-4
-                transition-colors
-                duration-300
-                hover:text-brand-primary
-              "
-            >
-              {contactEmail}
-            </a>
+            <div className="text-text-secondary">
+              <span className="font-medium text-text-primary">Email:</span>
+              <span className="inline-block w-1" aria-hidden="true" />
+              <a
+                href={`mailto:${contactEmail}`}
+                className="
+                  inline-block
+                  underline
+                  decoration-border-subtle
+                  underline-offset-4
+                  transition-colors
+                  duration-300
+                  hover:text-brand-primary
+                "
+              >
+                {contactEmail}
+              </a>
+            </div>
           </div>
         </div>
       </PageGrid>
