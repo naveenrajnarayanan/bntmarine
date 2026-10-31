@@ -1,29 +1,51 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { useState } from "react";
 import { Text } from "@/components/system/Text";
 
-const contactEmail = "sales@bntmarine.com";
+type SubmissionState =
+  | { status: "idle" | "sending" }
+  | { status: "success" | "error"; message: string };
 
 export function EnquiryForm() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [submission, setSubmission] = useState<SubmissionState>({
+    status: "idle",
+  });
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const body = [
-      `Name: ${formData.get("name")}`,
-      `Email: ${formData.get("email")}`,
-      `Phone number: ${formData.get("phone")}`,
-      `Country: ${formData.get("country")}`,
-      `Enquiry topic: ${formData.get("topic")}`,
-      "",
-      "Message:",
-      formData.get("message"),
-    ].join("\n");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    setSubmission({ status: "sending" });
 
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
-      "BNT Marine enquiry",
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "Unable to send your enquiry.");
+      }
+
+      form.reset();
+      setSubmission({
+        status: "success",
+        message: "Your enquiry has been sent. We’ll be in touch soon.",
+      });
+    } catch (error) {
+      setSubmission({
+        status: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Unable to send your enquiry. Please try again.",
+      });
+    }
   }
 
   return (
@@ -155,10 +177,23 @@ export function EnquiryForm() {
 
       <button
         type="submit"
-        className="w-fit border border-border-default px-space-24 py-space-16 text-cta text-text-primary hover:border-brand-primary hover:text-brand-primary md:col-span-2"
+        disabled={submission.status === "sending"}
+        className="w-fit border border-border-default px-space-24 py-space-16 text-cta text-text-primary hover:border-brand-primary hover:text-brand-primary disabled:cursor-not-allowed disabled:opacity-50 md:col-span-2"
       >
-        Send enquiry
+        {submission.status === "sending" ? "Sending…" : "Send enquiry"}
       </button>
+      {submission.status === "success" || submission.status === "error" ? (
+        <p
+          role={submission.status === "error" ? "alert" : "status"}
+          className={`text-body ${
+            submission.status === "success"
+              ? "text-brand-primary"
+              : "text-text-secondary"
+          } md:col-span-2`}
+        >
+          {submission.message}
+        </p>
+      ) : null}
     </form>
   );
 }
