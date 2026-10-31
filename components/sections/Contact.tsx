@@ -2,6 +2,7 @@
 import { PageGrid } from "@/components/system/Container";
 import { Text } from "@/components/system/Text";
 import { EnquiryForm } from "@/components/sections/EnquiryForm";
+import { MarineLocationsMapClient } from "@/components/map/MarineLocationsMapClient";
 
 export function ContactSection() {
   return (
@@ -26,6 +27,10 @@ export function ContactSection() {
 
       <div className="col-span-4 mt-space-48 md:col-span-12">
         <EnquiryForm />
+      </div>
+
+      <div className="col-span-4 mt-space-48 md:col-span-12">
+        <MarineLocationsMapClient />
       </div>
     </PageGrid>
   );

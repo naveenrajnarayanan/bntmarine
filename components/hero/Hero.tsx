@@ -6,7 +6,7 @@ import { HeroVideo } from "@/components/hero/HeroVideo";
 import { ScrollIndicator } from "@/components/hero/ScrollIndicator";
 import "./hero.css";
 
-const HERO_SRC = "/videos/BNT_HERO_NEW.mp4";
+const HERO_SRC = "/videos/BNT_HERO_DB.mp4";
 
 export function Hero() {
   const [videoReady, setVideoReady] = useState(false);

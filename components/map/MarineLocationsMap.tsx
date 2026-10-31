@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect } from "react";
 import {
   MapContainer,
   Marker,
@@ -85,7 +85,7 @@ function createMarkerIcon() {
 function FitLocations() {
   const map = useMap();
 
-  useMemo(() => {
+  useEffect(() => {
     const bounds = L.latLngBounds(
       locations.map((location) => location.position),
     );
